@@ -20,7 +20,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.nicolas_cumbre.snack22e72fa68ff34d24a68646a8d9aacfb0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -29,6 +30,9 @@
       "eas": {
         "projectId": "7ed25208-7611-4794-b65a-e624cf76545c"
       }
-    }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
