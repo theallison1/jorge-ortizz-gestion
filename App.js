@@ -1,65 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
 
-import LoginScreen from "./screens/LoginScreen";
-import DashboardScreen from "./screens/DashboardScreen";
-import VehiclesScreen from "./screens/VehiclesScreen";
-import ClientsScreen from "./screens/ClientsScreen";
-import SalesScreen from "./screens/SalesScreen";
-import SettingsScreen from "./screens/SettingsScreen";
+import AppNavigator from "./navigation/AppNavigator";
 
 export default function App() {
-
-  const [screen, setScreen] = useState("login");
-
-  switch (screen) {
-
-    case "login":
-      return (
-        <LoginScreen
-          onLogin={() => setScreen("dashboard")}
-        />
-      );
-
-    case "dashboard":
-      return (
-        <DashboardScreen
-          onNavigate={setScreen}
-        />
-      );
-
-    case "vehicles":
-      return (
-        <VehiclesScreen
-          onBack={() => setScreen("dashboard")}
-        />
-      );
-
-    case "clients":
-      return (
-        <ClientsScreen
-          onBack={() => setScreen("dashboard")}
-        />
-      );
-
-    case "sales":
-      return (
-        <SalesScreen
-          onBack={() => setScreen("dashboard")}
-        />
-      );
-
-    case "settings":
-      return (
-        <SettingsScreen
-          onBack={() => setScreen("dashboard")}
-        />
-      );
-
-    default:
-      return (
-        <DashboardScreen
-          onNavigate={setScreen}
-        />
-      );
-  }
+  return (
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
+  );
 }
