@@ -1,13 +1,18 @@
 import React from "react";
 import {
   View,
- Text,
+  Text,
   StyleSheet,
   TextInput,
   TouchableOpacity,
 } from "react-native";
 
-export default function LoginScreen({ onLogin }) {
+export default function LoginScreen({ navigation }) {
+
+  const handleLogin = () => {
+    navigation.replace("Dashboard");
+  };
+
   return (
     <View style={styles.container}>
 
@@ -18,7 +23,7 @@ export default function LoginScreen({ onLogin }) {
       </Text>
 
       <Text style={styles.subtitle}>
-        Plataforma de Gestion
+        Plataforma de Gestión
       </Text>
 
       <TextInput
@@ -36,7 +41,7 @@ export default function LoginScreen({ onLogin }) {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={onLogin}
+        onPress={handleLogin}
       >
         <Text style={styles.buttonText}>
           INGRESAR
@@ -49,51 +54,51 @@ export default function LoginScreen({ onLogin }) {
 
 const styles = StyleSheet.create({
 
-container:{
-flex:1,
-backgroundColor:"#111827",
-justifyContent:"center",
-padding:25
-},
+  container: {
+    flex: 1,
+    backgroundColor: "#111827",
+    justifyContent: "center",
+    padding: 25,
+  },
 
-logo:{
-fontSize:70,
-textAlign:"center"
-},
+  logo: {
+    fontSize: 70,
+    textAlign: "center",
+  },
 
-title:{
-color:"white",
-fontSize:28,
-fontWeight:"bold",
-textAlign:"center",
-marginTop:15
-},
+  title: {
+    color: "white",
+    fontSize: 28,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginTop: 15,
+  },
 
-subtitle:{
-color:"#AAA",
-textAlign:"center",
-marginBottom:40
-},
+  subtitle: {
+    color: "#AAA",
+    textAlign: "center",
+    marginBottom: 40,
+  },
 
-input:{
-backgroundColor:"#1F2937",
-color:"white",
-padding:15,
-borderRadius:12,
-marginBottom:15
-},
+  input: {
+    backgroundColor: "#1F2937",
+    color: "white",
+    padding: 15,
+    borderRadius: 12,
+    marginBottom: 15,
+  },
 
-button:{
-backgroundColor:"#DC2626",
-padding:18,
-borderRadius:12
-},
+  button: {
+    backgroundColor: "#DC2626",
+    padding: 18,
+    borderRadius: 12,
+  },
 
-buttonText:{
-color:"white",
-fontWeight:"bold",
-fontSize:18,
-textAlign:"center"
-}
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 18,
+    textAlign: "center",
+  },
 
 });

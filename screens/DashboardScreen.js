@@ -1,22 +1,14 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import Header from "../components/Header";
 import StatCard from "../components/StatCard";
-import MenuCard from "../components/MenuCard";
 import colors from "../theme/colors";
 
-export default function DashboardScreen({ onNavigate }) {
+export default function DashboardScreen({ navigation }) {
   return (
-    <ScrollView
-      style={styles.container}
-      showsVerticalScrollIndicator={false}
-    >
+    <View style={styles.container}>
+      
       <Header title="ORTIZ AUTOMOTORES" />
 
       <Text style={styles.welcome}>
@@ -34,48 +26,36 @@ export default function DashboardScreen({ onNavigate }) {
         Accesos rápidos
       </Text>
 
-      <MenuCard
-        icon="🚗"
-        title="Vehículos"
-        onPress={() => onNavigate("vehicles")}
-      />
+      {/* Botones de navegación */}
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() => navigation.navigate("Vehicles")}
+      >
+        <Text style={styles.cardText}>🚗 Vehículos</Text>
+      </TouchableOpacity>
 
-      <MenuCard
-        icon="👥"
-        title="Clientes"
-        onPress={() => onNavigate("clients")}
-      />
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() => navigation.navigate("Clients")}
+      >
+        <Text style={styles.cardText}>👥 Clientes</Text>
+      </TouchableOpacity>
 
-      <MenuCard
-        icon="💰"
-        title="Ventas"
-        onPress={() => onNavigate("sales")}
-      />
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() => navigation.navigate("Sales")}
+      >
+        <Text style={styles.cardText}>💰 Ventas</Text>
+      </TouchableOpacity>
 
-      <MenuCard
-        icon="📄"
-        title="Reservas"
-        onPress={() => onNavigate("reservations")}
-      />
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() => navigation.navigate("Settings")}
+      >
+        <Text style={styles.cardText}>⚙ Configuración</Text>
+      </TouchableOpacity>
 
-      <MenuCard
-        icon="💬"
-        title="WhatsApp"
-        onPress={() => onNavigate("whatsapp")}
-      />
-
-      <MenuCard
-        icon="🤖"
-        title="Asistente IA"
-        onPress={() => onNavigate("ai")}
-      />
-
-      <MenuCard
-        icon="⚙️"
-        title="Configuración"
-        onPress={() => onNavigate("settings")}
-      />
-    </ScrollView>
+    </View>
   );
 }
 
@@ -105,5 +85,18 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 15,
+  },
+
+  card: {
+    backgroundColor: colors.card,
+    padding: 18,
+    borderRadius: 15,
+    marginBottom: 12,
+  },
+
+  cardText: {
+    color: colors.text,
+    fontSize: 18,
+    fontWeight: "600",
   },
 });
